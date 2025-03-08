@@ -16,25 +16,29 @@ import {
 } from "@/components/ui/pagination"
 import { UserTableActions } from "@/components/dashboard/user-table-actions"
 import { PlusCircle, Search, Loader2 } from "lucide-react"
-import { useUsers } from "@/hooks/use-users"
-import { CreateUserDialog } from "@/components/dashboard/create-user-dialog"
 
-export default function UsersPage() {
+import { CreateUserDialog } from "@/components/dashboard/create-user-dialog"
+import { useProducts } from "@/hooks/use-products"
+import { CategoryName } from "./constants/product.constant"
+import { CreateProductDialog } from "@/components/dashboard/create-product-dialog"
+import { ProductTableAction } from "@/components/dashboard/user-product-actions"
+
+export default function ProductsPage() {
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false)
-  const { users, total, page, limit, search, isLoading, error, handleSearch, handlePageChange, refetch } = useUsers()
+  const { products, total, page, limit, search, isLoading, error, handleSearch, handlePageChange, refetch } = useProducts()
 
   // Calculate pagination values
   const totalPages = Math.ceil(total / limit)
   const startItem = (page - 1) * limit + 1
   const endItem = Math.min(page * limit, total)
-
+  
   // Handle search input
   const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     handleSearch(e.target.value)
   }
 
   // Handle user creation
-  const handleUserCreated = () => {
+  const handleProductCreated = () => {
     refetch()
     setIsCreateDialogOpen(false)
   }
@@ -70,10 +74,12 @@ export default function UsersPage() {
           <TableHeader>
             <TableRow>
               <TableHead>Name</TableHead>
-              <TableHead>Email</TableHead>
-              <TableHead>Role</TableHead>
+              <TableHead className="w-[200px] ">Description</TableHead>
+              <TableHead>Price</TableHead>
+              <TableHead>Stock</TableHead>
+              <TableHead>Category</TableHead>
               <TableHead>Status</TableHead>
-              
+    
               <TableHead className="w-[100px]">Actions</TableHead>
             </TableRow>
           </TableHeader>
@@ -87,28 +93,33 @@ export default function UsersPage() {
                   </div>
                 </TableCell>
               </TableRow>
-            ) : users.length === 0 ? (
+            ) : products.length === 0 ? (
               <TableRow>
                 <TableCell colSpan={6} className="h-24 text-center">
-                  No users found.
+                  No products found.
                 </TableCell>
               </TableRow>
             ) : (
-              users.map((user) => (
-                <TableRow key={user.id}>
-                  <TableCell className="font-medium">{user.name}</TableCell>
-                  <TableCell>{user.email}</TableCell>
-                  <TableCell>{user.role}</TableCell>
+              products.map((product) => (
+                <TableRow key={product.id}>
+                  <TableCell className="font-medium">{product.name}</TableCell>
+                  <TableCell>{product.description}</TableCell>
+                  <TableCell>{product.price}</TableCell>
+                 
+                  <TableCell>{product.stock}</TableCell>
+                  <TableCell>{CategoryName[product.categoryId as keyof typeof CategoryName] || "Unknown"}</TableCell>
+
+                 
                   <TableCell>
                     <div className={`flex items-center gap-2`}>
                       <div
-                        className={`h-2 w-2 rounded-full ${user.status === "ACTIVE" ? "bg-green-500" : "bg-gray-300"}`}
+                        className={`h-2 w-2 rounded-full ${product.status === "ACTIVE" ? "bg-green-500" : "bg-gray-300"}`}
                       />
-                      {user.status}
+                      {product.status}
                     </div>
                   </TableCell>
                   <TableCell>
-                    <UserTableActions userId={user.id} onUserDeleted={refetch} />
+                    <ProductTableAction productId={product.id} onProductDeleted={refetch} />
                   </TableCell>
                 </TableRow>
               ))
@@ -117,7 +128,7 @@ export default function UsersPage() {
         </Table>
       </div>
 
-      {!isLoading && users.length > 0 && (
+      {!isLoading && products.length > 0 && (
         <div className="flex items-center justify-between">
           <p className="text-sm text-muted-foreground">
             Showing {startItem} to {endItem} of {total} users
@@ -164,10 +175,10 @@ export default function UsersPage() {
         </div>
       )}
 
-      <CreateUserDialog
+      <CreateProductDialog
         open={isCreateDialogOpen}
         onOpenChange={setIsCreateDialogOpen}
-        onUserCreated={handleUserCreated}
+        onProductCreated={handleProductCreated}
       />
     </div>
   )
