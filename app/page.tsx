@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, CheckCircle } from "lucide-react"
 import { AvatarImage } from "@/components/ui/avatar"
+import ButtonDashboard from "@/components/ui/buttondashboard"
 
 export default function Home() {
   return (
@@ -66,7 +67,9 @@ export default function Home() {
                   <div className="absolute inset-0 bg-grid-white/10" />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center space-y-2">
-                      <div className="text-lg font-medium">Dashboard Preview</div>
+                      <div className="text-lg font-medium">
+                        <img src="/adminpanel.png" alt="dashboard preview" />
+                      </div>
                       <div className="text-sm text-muted-foreground">Beautiful, responsive, and customizable</div>
                     </div>
                   </div>
@@ -120,10 +123,10 @@ export default function Home() {
               ].map((feature, index) => (
                 <div
                   key={index}
-                  className="flex flex-col items-center space-y-2 rounded-lg border bg-background p-6 shadow-sm"
+                  className="flex flex-col items-center space-y-2 h-full rounded-lg border bg-background p-6 shadow-sm"
                 >
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                    <CheckCircle className="h-6 w-6 text-primary" />
+                    <CheckCircle className="h-6 w-6 text-primary text-green-400" />
                   </div>
                   <h3 className="text-xl font-bold">{feature.title}</h3>
                   <p className="text-center text-muted-foreground">{feature.description}</p>
@@ -191,6 +194,7 @@ export default function Home() {
                   </ul>
                   <div className="mt-6">
                     <Button className="w-full">Get Started</Button>
+                  
                   </div>
                 </div>
               ))}

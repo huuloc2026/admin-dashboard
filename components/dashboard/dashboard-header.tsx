@@ -48,7 +48,7 @@ export function DashboardHeader() {
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full">
               <Avatar className="h-8 w-8">
-                <AvatarImage src="/3.svg" alt={user?.name || "User"} />
+                <AvatarImage src="/user.svg" alt={user?.name || "User"} />
                 <AvatarFallback>{user?.name?.charAt(0) || "U"}</AvatarFallback>
               </Avatar>
             </Button>
