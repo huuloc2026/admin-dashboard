@@ -6,10 +6,23 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { useTheme } from "next-themes"
 import { useAuthStore } from "@/lib/auth-store"
+import Link from "next/link"
+import { usePathname, useRouter } from "next/navigation"
+import { logout } from "@/lib/auth-actions"
 
 export function DashboardHeader() {
   const { theme, setTheme } = useTheme()
   const user = useAuthStore((state) => state.user)
+
+    const pathname = usePathname()
+    const clearUser = useAuthStore((state) => state.clearUser)
+    const router = useRouter()
+  
+    const handleLogout = async () => {
+      await logout()
+      clearUser()
+      router.push("/login")
+    }
 
   return (
     <header className="flex h-14 items-center gap-4 border-b bg-background px-4 lg:px-6">
@@ -35,15 +48,24 @@ export function DashboardHeader() {
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full">
               <Avatar className="h-8 w-8">
-                <AvatarImage src="/placeholder.svg" alt={user?.name || "User"} />
+                <AvatarImage src="/3.svg" alt={user?.name || "User"} />
                 <AvatarFallback>{user?.name?.charAt(0) || "U"}</AvatarFallback>
               </Avatar>
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuItem>Profile</DropdownMenuItem>
-            <DropdownMenuItem>Settings</DropdownMenuItem>
-            <DropdownMenuItem>Logout</DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link href='/dashboard/settings'>Settings</Link></DropdownMenuItem>
+              <DropdownMenuItem asChild>
+  <button
+    className="w-full text-left px-2 py-1.5 text-sm font-medium text-red-500 transition-colors hover:bg-red-100 dark:hover:bg-red-900 rounded-md"
+    onClick={handleLogout}
+  >
+    Log out
+  </button>
+</DropdownMenuItem>
+
           </DropdownMenuContent>
         </DropdownMenu>
       </div>

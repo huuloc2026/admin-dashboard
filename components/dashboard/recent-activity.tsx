@@ -5,7 +5,7 @@ const activities = [
     id: "1",
     user: {
       name: "John Doe",
-      avatar: "/placeholder.svg",
+      avatar: "penguin-svgrepo-com.svg",
       email: "john@example.com",
     },
     action: "created a new project",
