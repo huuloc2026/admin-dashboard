@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight, CheckCircle } from "lucide-react"
 import { AvatarImage } from "@/components/ui/avatar"
 import ButtonDashboard from "@/components/ui/buttondashboard"
+import ColourfulText from "@/components/ui/colourful-text"
+import { Lens } from "@/components/ui/lens"
 
 export default function Home() {
   return (
@@ -41,8 +43,12 @@ export default function Home() {
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                    Powerful Admin Dashboard for Your Business
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-800 to-cyan-400">
+                  Powerful 
+                    </span>{" "}
+                    Admin Dashboard for Your Business"
+                
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
                     Streamline your operations with our intuitive admin dashboard. Manage users, track analytics, and
@@ -51,7 +57,10 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Link href="/register">
-                    <Button size="lg" className="gap-1.5">
+                  <Button
+                      size="lg"
+                      className="gap-1.5 bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 text-white border-0"
+                    >
                       Get Started <ArrowRight className="h-4 w-4" />
                     </Button>
                   </Link>
