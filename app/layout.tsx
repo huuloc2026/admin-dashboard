@@ -2,8 +2,9 @@ import type React from "react"
 import type { Metadata } from "next/types"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import { Toaster } from "@/components/ui/toaster"
+
 import { AuthProvider } from "@/lib/auth-provider"
+import { Toaster } from "sonner"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -25,7 +26,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <AuthProvider>{children}</AuthProvider>
-        <Toaster />
+        <Toaster theme="dark" />
       </body>
     </html>
   )
