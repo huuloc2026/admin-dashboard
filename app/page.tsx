@@ -5,6 +5,10 @@ import { AvatarImage } from "@/components/ui/avatar"
 import ButtonDashboard from "@/components/ui/buttondashboard"
 import ColourfulText from "@/components/ui/colourful-text"
 import { Lens } from "@/components/ui/lens"
+import PricingSection from "@/components/custom/pricing"
+import { TimelineDemo } from "../components/custom/TimelineOfCompany"
+import { BackgroundBeamsDemo } from "@/components/custom/BackgroundDemo"
+
 
 export default function Home() {
   return (
@@ -47,7 +51,7 @@ export default function Home() {
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-800 to-cyan-400">
                   Powerful 
                     </span>{" "}
-                    Admin Dashboard for Your Business"
+                    Admin Dashboard for Your Business
                 
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
@@ -87,7 +91,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-
+ 
         <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -144,8 +148,10 @@ export default function Home() {
             </div>
           </div>
         </section>
+ <TimelineDemo />
 
-        <section id="pricing" className="w-full py-12 md:py-24 lg:py-32">
+              <PricingSection/>
+        {/* <section id="pricing" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -209,13 +215,13 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         <section className="w-full py-12 md:py-24 lg:py-32 border-t">
           <div className="container px-4 md:px-6">
             <div className="grid gap-10 sm:px-10 md:gap-16 md:grid-cols-2">
               <div className="space-y-4">
-                <div className="inline-block rounded-lg bg-primary px-3 py-1 text-sm text-primary-foreground">
+                <div className="inline-block rounded-lg bg-primary px-3 py-1 text-sm bg-gradient-to-r from-purple-500 to-cyan-500 text-white border-0">
                   Ready to start?
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
@@ -226,11 +232,16 @@ export default function Home() {
                 </p>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Link href="/register">
-                    <Button size="lg">Get Started</Button>
+                    <Button
+                      size="lg"
+                      className="gap-1.5 bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 text-white border-0"
+                    >
+                     Get Started <ArrowRight className="h-4 w-4" />
+                    </Button>
                   </Link>
-                  <Link href="/login">
-                    <Button size="lg" variant="outline">
-                      Login
+                  <Link href="#features">
+                    <Button size="lg" variant="outline" className="border-zinc-700 hover:bg-zinc-800 text-white">
+                      Learn More
                     </Button>
                   </Link>
                 </div>
@@ -274,6 +285,9 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </section>
+        <section>
+        <BackgroundBeamsDemo/>
         </section>
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
