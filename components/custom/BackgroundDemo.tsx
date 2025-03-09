@@ -50,7 +50,7 @@ export function BackgroundBeamsDemo() {
           </Button>
         </div>
       </div>
-      <BackgroundBeams />
+      {/* <BackgroundBeams /> */}
     </div>
   );
 }
