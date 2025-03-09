@@ -1,32 +1,46 @@
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { ArrowRight, CheckCircle } from "lucide-react"
-import { AvatarImage } from "@/components/ui/avatar"
-import ButtonDashboard from "@/components/ui/buttondashboard"
-import ColourfulText from "@/components/ui/colourful-text"
-import { Lens } from "@/components/ui/lens"
-import PricingSection from "@/components/custom/pricing"
-import { TimelineDemo } from "../components/custom/TimelineOfCompany"
-import { BackgroundBeamsDemo } from "@/components/custom/BackgroundDemo"
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, CheckCircle } from "lucide-react";
+import { AvatarImage } from "@/components/ui/avatar";
+import ButtonDashboard from "@/components/ui/buttondashboard";
+import ColourfulText from "@/components/ui/colourful-text";
+import { Lens } from "@/components/ui/lens";
+import PricingSection from "@/components/custom/pricing";
+import { TimelineDemo } from "../components/custom/TimelineOfCompany";
 
+import { FlipWordsDemo } from "@/components/custom/FlipDemo";
+import { FlipWords } from "@/components/ui/flip-words";
+
+import { BackgroundBeamsDemo } from "@/components/custom/BackgroundDemo";
+import { PreviewDemo } from "./PreviewDemo";
 
 export default function Home() {
+  const words = ["Better", "Smart", "Scalable", "Modern", "Insightful"];
   return (
     <div className="flex flex-col min-h-[100dvh]">
       <header className="px-4 lg:px-6 h-16 flex items-center border-b">
         <Link href="/" className="flex items-center justify-center">
-        <div className="h-[50px] w-[50px]">
-        <img src="/logo.svg" alt="dashboard" />
-        </div>
+          <div className="h-[50px] w-[50px]">
+            <img src="/logo.svg" alt="dashboard" />
+          </div>
         </Link>
         <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link href="#features" className="text-sm font-medium hover:underline underline-offset-4">
+          <Link
+            href="#features"
+            className="text-sm font-medium hover:underline underline-offset-4"
+          >
             Features
           </Link>
-          <Link href="#pricing" className="text-sm font-medium hover:underline underline-offset-4">
+          <Link
+            href="#pricing"
+            className="text-sm font-medium hover:underline underline-offset-4"
+          >
             Pricing
           </Link>
-          <Link href="#about" className="text-sm font-medium hover:underline underline-offset-4">
+          <Link
+            href="#about"
+            className="text-sm font-medium hover:underline underline-offset-4"
+          >
             About
           </Link>
         </nav>
@@ -47,21 +61,22 @@ export default function Home() {
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-800 to-cyan-400">
-                  Powerful 
-                    </span>{" "}
-                    Admin Dashboard for Your Business
-                
+                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                    <div className="text-transparent bg-clip-text bg-gradient-to-r from-purple-800 to-cyan-400">
+                      Build <FlipWords words={words} /> <br />
+                    </div>
+                    <span> Admin Dashboard </span>
+                    <div>for Your Business</div>
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                    Streamline your operations with our intuitive admin dashboard. Manage users, track analytics, and
-                    grow your business.
+                    Streamline your operations with our intuitive admin
+                    dashboard. Manage users, track analytics, and grow your
+                    business.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Link href="/register">
-                  <Button
+                    <Button
                       size="lg"
                       className="gap-1.5 bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 text-white border-0"
                     >
@@ -75,24 +90,17 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-              <div className="flex items-center justify-center">
-                <div className="relative w-full h-[350px] bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl overflow-hidden border shadow-lg">
-                  <div className="absolute inset-0 bg-grid-white/10" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center space-y-2">
-                      <div className="text-lg font-medium">
-                        <img src="/adminpanel.png" alt="dashboard preview" />
-                      </div>
-                      <div className="text-sm text-muted-foreground">Beautiful, responsive, and customizable</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+       
+           <PreviewDemo />
+          
             </div>
           </div>
         </section>
- 
-        <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
+
+        <section
+          id="features"
+          className="w-full py-12 md:py-24 lg:py-32 bg-muted"
+        >
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -103,7 +111,8 @@ export default function Home() {
                   Everything you need to succeed
                 </h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Our platform provides all the tools you need to manage your business efficiently.
+                  Our platform provides all the tools you need to manage your
+                  business efficiently.
                 </p>
               </div>
             </div>
@@ -111,27 +120,33 @@ export default function Home() {
               {[
                 {
                   title: "User Management",
-                  description: "Easily manage users, roles, and permissions with our intuitive interface.",
+                  description:
+                    "Easily manage users, roles, and permissions with our intuitive interface.",
                 },
                 {
                   title: "Analytics Dashboard",
-                  description: "Track key metrics and visualize data to make informed business decisions.",
+                  description:
+                    "Track key metrics and visualize data to make informed business decisions.",
                 },
                 {
                   title: "Content Management",
-                  description: "Create, edit, and publish content with our powerful CMS tools.",
+                  description:
+                    "Create, edit, and publish content with our powerful CMS tools.",
                 },
                 {
                   title: "Responsive Design",
-                  description: "Access your dashboard from any device with our fully responsive interface.",
+                  description:
+                    "Access your dashboard from any device with our fully responsive interface.",
                 },
                 {
                   title: "Secure Authentication",
-                  description: "Keep your data safe with our robust authentication system.",
+                  description:
+                    "Keep your data safe with our robust authentication system.",
                 },
                 {
                   title: "Customizable Interface",
-                  description: "Tailor the dashboard to your needs with customizable widgets and layouts.",
+                  description:
+                    "Tailor the dashboard to your needs with customizable widgets and layouts.",
                 },
               ].map((feature, index) => (
                 <div
@@ -142,15 +157,17 @@ export default function Home() {
                     <CheckCircle className="h-6 w-6 text-primary text-green-400" />
                   </div>
                   <h3 className="text-xl font-bold">{feature.title}</h3>
-                  <p className="text-center text-muted-foreground">{feature.description}</p>
+                  <p className="text-center text-muted-foreground">
+                    {feature.description}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
         </section>
- <TimelineDemo />
+        <TimelineDemo />
 
-              <PricingSection/>
+        <PricingSection />
         {/* <section id="pricing" className="w-full py-12 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -228,7 +245,8 @@ export default function Home() {
                   Start managing your business today
                 </h2>
                 <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Join thousands of businesses already using our platform to grow and succeed.
+                  Join thousands of businesses already using our platform to
+                  grow and succeed.
                 </p>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Link href="/register">
@@ -236,11 +254,15 @@ export default function Home() {
                       size="lg"
                       className="gap-1.5 bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 text-white border-0"
                     >
-                     Get Started <ArrowRight className="h-4 w-4" />
+                      Get Started <ArrowRight className="h-4 w-4" />
                     </Button>
                   </Link>
                   <Link href="#features">
-                    <Button size="lg" variant="outline" className="border-zinc-700 hover:bg-zinc-800 text-white">
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="border-zinc-700 hover:bg-zinc-800 text-white"
+                    >
                       Learn More
                     </Button>
                   </Link>
@@ -255,7 +277,8 @@ export default function Home() {
                     <div className="space-y-1">
                       <h3 className="font-medium">Easy Setup</h3>
                       <p className="text-sm text-muted-foreground">
-                        Get started in minutes with our simple onboarding process.
+                        Get started in minutes with our simple onboarding
+                        process.
                       </p>
                     </div>
                   </div>
@@ -266,7 +289,8 @@ export default function Home() {
                     <div className="space-y-1">
                       <h3 className="font-medium">Free Trial</h3>
                       <p className="text-sm text-muted-foreground">
-                        Try all features free for 14 days, no credit card required.
+                        Try all features free for 14 days, no credit card
+                        required.
                       </p>
                     </div>
                   </div>
@@ -277,7 +301,8 @@ export default function Home() {
                     <div className="space-y-1">
                       <h3 className="font-medium">Cancel Anytime</h3>
                       <p className="text-sm text-muted-foreground">
-                        No long-term contracts. Cancel your subscription at any time.
+                        No long-term contracts. Cancel your subscription at any
+                        time.
                       </p>
                     </div>
                   </div>
@@ -287,7 +312,7 @@ export default function Home() {
           </div>
         </section>
         <section>
-        <BackgroundBeamsDemo/>
+          <BackgroundBeamsDemo />
         </section>
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
@@ -304,6 +329,5 @@ export default function Home() {
         </nav>
       </footer>
     </div>
-  )
+  );
 }
-

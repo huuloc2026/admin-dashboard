@@ -11,13 +11,14 @@ import { toast } from "sonner";
 
 
 export function BackgroundBeamsDemo() {
-    const [email,setEmail] = useState("huuloc2026@gmail.com")
+    const [email,setEmail] = useState("")
     const handleClick = () => {
         if (!email.trim()) {
           toast.error("Please enter your email!");
           return;
         }
         toast.success("Successfully sent request!");
+        setEmail("")
       };
     
   return (
@@ -27,15 +28,15 @@ export function BackgroundBeamsDemo() {
           Join the waitlist
         </h1>
         <p className="text-neutral-500 max-w-lg mx-auto my-2 text-sm">
-          Welcome to MailJet, the best transactional email service on the web.
-          We provide reliable, scalable, and customizable email solutions for
-          your business. Whether you're sending order confirmations, password
-          reset emails, or promotional campaigns, MailJet has got you covered.
+        Be among the first to experience our powerful, 
+        data-driven Company Dashboard Service! Get early access and unlock real-time insights, 
+        automation, and seamless business monitoring before anyone else.
         </p>
         <div className="w-full max-w-md mx-auto mt-4 space-y-4">
           <Input
             type="email"
-            placeholder={email}
+            value={email}
+            placeholder="huuloc2026@gmail.com"
             onChange={(e) => setEmail(e.target.value)}
             className="w-full bg-neutral-950 border border-neutral-800 placeholder:text-neutral-700"
           />
