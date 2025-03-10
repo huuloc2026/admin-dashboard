@@ -53,20 +53,6 @@ export default function ProductsPage() {
         </Button>
       </div>
 
-      {/* <div className="flex items-center gap-2">
-        <div className="relative flex-1">
-          <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-          <Input
-            type="search"
-            placeholder="Search users..."
-            className="w-full pl-8"
-            value={search}
-            onChange={handleSearchInput}
-          />
-        </div>
-        <Button variant="outline">Filter</Button>
-      </div> */}
-
       {error && <div className="rounded-md bg-destructive/15 p-4 text-destructive">{error}</div>}
 
       <div className="rounded-md border">

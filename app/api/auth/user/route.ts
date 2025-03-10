@@ -1,6 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server"
-import { cookies } from "next/headers"
-import { KEYSTORE } from "@/app/utils/keyStoreSymbol"
+
 
 // Mock users database - in a real app, this would be in a database
 const users = [

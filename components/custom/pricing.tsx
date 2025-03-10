@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 const pricingVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -41,6 +43,10 @@ export default function PricingSection() {
       ],
     },
   ];
+  const router = useRouter()
+  const handleSubmit = () => {
+    router.push("/dashboard/subscription")
+  }
 
   return (
     <> 
@@ -98,7 +104,7 @@ export default function PricingSection() {
                 ))}
               </ul>
               <div className="mt-6">
-                <Button className="w-full bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 text-white border-0">
+               <Button onClick={handleSubmit} className="w-full bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 text-white border-0">
                   Get Started
                 </Button>
               </div>

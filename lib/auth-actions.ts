@@ -10,6 +10,13 @@ type LoginResponse = {
   accessToken: string
 }
 
+type ResponseProfile = {
+  id:string,
+  name:string,
+  email:string,
+  role:string,
+}
+
 type RegisterResponse = {
   user: User
   accessToken: string
@@ -63,10 +70,10 @@ export async function logout(): Promise<void> {
   }
 }
 
-export async function getCurrentUser(): Promise<User | null> {
+export async function getCurrentUser(): Promise<any> {
   try {
     // Call current user API
-    const user = await api.get<User>("/users")
+    const user = await api.get<ResponseProfile>("/users/me")
     return user
   } catch (error) {
     // If unauthorized or other error, return null

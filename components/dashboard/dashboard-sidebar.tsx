@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
-import { BarChart3, Settings, Users, Home, LogOut, Menu,Projector } from "lucide-react"
+import { BarChart3, Settings, Users, Home, LogOut, Menu,Projector,SubscriptIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { cn } from "@/lib/utils"
@@ -25,11 +25,11 @@ const sidebarItems = [
     href: "/dashboard/products",
     icon: Projector,
   },
-  // {
-  //   title: "Analytics",
-  //   href: "/dashboard/analytics",
-  //   icon: BarChart3,
-  // },
+  {
+    title: "Subscription",
+    href: "/dashboard/subscription",
+    icon: SubscriptIcon,
+  },
   {
     title: "Settings",
     href: "/dashboard/settings",

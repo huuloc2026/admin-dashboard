@@ -12,7 +12,7 @@ import { FlipWordsDemo } from "@/components/custom/FlipDemo";
 import { FlipWords } from "@/components/ui/flip-words";
 
 import { BackgroundBeamsDemo } from "@/components/custom/BackgroundDemo";
-import { PreviewDemo } from "./PreviewDemo";
+import { PreviewDemo } from "../components/custom/PreviewDemo";
 
 export default function Home() {
   const words = ["Better", "Smart", "Scalable", "Modern", "Insightful"];
