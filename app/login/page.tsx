@@ -36,7 +36,7 @@ export default function LoginPage() {
 
   const onSubmit = async (data: FormData) => {
     try {
-      data.email = "user2222@example.com"
+     
       data.password = "password123"
 
       const user = await login(data.email, data.password)

@@ -45,7 +45,7 @@ export default function RegisterPage() {
         title: "Registration successful",
         description: "Your account has been created successfully.",
       })
-      router.push("/dashboard")
+      router.push("/login")
     } catch (error) {
       toast({
         title: "Registration failed",
