@@ -23,6 +23,7 @@ import {
 } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import { useState } from 'react'
 
 // Schema for contact form validation
 const formSchema = z.object({
@@ -36,6 +37,9 @@ const formSchema = z.object({
 })
 
 export default function ContactFormPreview() {
+    const [name,setName]=useState("")
+    const [email,setEmail]=useState("")
+    const [description,setDescription]=useState("")
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -50,6 +54,7 @@ export default function ContactFormPreview() {
       // Simulate a successful contact form submission
       console.log(values)
       toast.success('Your message has been sent successfully!')
+      form.reset()
     } catch (error) {
       console.error('Error submitting contact form', error)
       toast.error('Failed to send your message. Please try again.')
