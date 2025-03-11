@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
+import { useRouter } from 'next/navigation'
 
 import {
   Form,
@@ -23,8 +24,7 @@ import {
 } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa'
 
 // Schema for contact form validation
 const formSchema = z.object({
@@ -38,8 +38,8 @@ const formSchema = z.object({
 })
 
 export default function ContactFormPreview() {
-    
-    const router = useRouter()
+  const router = useRouter()
+  
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -51,14 +51,13 @@ export default function ContactFormPreview() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-        // Simulate a successful contact form submission
-        console.log(values)
-        toast.success('Your message has been sent successfully!')
-        form.reset()
-        
-        setTimeout(()=>{
+      console.log(values)
+      toast.success('Your message has been sent successfully!')
+      form.reset()
+      
+      setTimeout(() => {
         router.push('/')
-      },2000)
+      }, 2000)
     } catch (error) {
       console.error('Error submitting contact form', error)
       toast.error('Failed to send your message. Please try again.')
@@ -146,6 +145,42 @@ export default function ContactFormPreview() {
               </div>
             </form>
           </Form>
+
+          {/* Contact Info */}
+          <div className="mt-6 text-center space-y-3">
+            <p className="text-sm text-gray-600">Or reach out directly:</p>
+            <div className="flex justify-center space-x-4">
+              <a 
+                href="mailto:huuloc2026@mail.com" 
+                target="_blank" 
+               
+                className="flex items-center space-x-2"
+              >
+                <FaEnvelope />
+                <span>Email</span>
+              </a>
+              
+              <a 
+                href="https://www.linkedin.com/in/huuloc2026" 
+                target="_blank" 
+               
+                className="flex items-center space-x-2"
+              >
+                <FaLinkedin />
+                <span>LinkedIn</span>
+              </a>
+
+              <a 
+                href="https://github.com/huuloc2026" 
+                target="_blank" 
+               
+                className="flex items-center space-x-2 "
+              >
+                <FaGithub />
+                <span>GitHub</span>
+              </a>
+            </div>
+          </div>
         </CardContent>
       </Card>
     </div>
