@@ -5,6 +5,7 @@ import "./globals.css"
 
 import { AuthProvider } from "@/lib/auth-provider"
 import { Toaster } from "sonner"
+import ScrollToTopButton from "@/components/ui/ScrollToTop"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -27,6 +28,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <AuthProvider>{children}</AuthProvider>
         <Toaster theme="dark" />
+        <ScrollToTopButton />
       </body>
     </html>
   )
