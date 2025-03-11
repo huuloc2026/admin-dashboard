@@ -24,6 +24,7 @@ import {
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 // Schema for contact form validation
 const formSchema = z.object({
@@ -38,6 +39,7 @@ const formSchema = z.object({
 
 export default function ContactFormPreview() {
     
+    const router = useRouter()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -49,10 +51,14 @@ export default function ContactFormPreview() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      // Simulate a successful contact form submission
-      console.log(values)
-      toast.success('Your message has been sent successfully!')
-      form.reset()
+        // Simulate a successful contact form submission
+        console.log(values)
+        toast.success('Your message has been sent successfully!')
+        form.reset()
+        toast.success('Your will back to homepage !!!')
+        setTimeout(()=>{
+        router.push('/')
+      },2000)
     } catch (error) {
       console.error('Error submitting contact form', error)
       toast.error('Failed to send your message. Please try again.')
