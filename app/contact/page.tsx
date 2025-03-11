@@ -55,7 +55,7 @@ export default function ContactFormPreview() {
         console.log(values)
         toast.success('Your message has been sent successfully!')
         form.reset()
-        toast.success('Your will back to homepage !!!')
+        
         setTimeout(()=>{
         router.push('/')
       },2000)
