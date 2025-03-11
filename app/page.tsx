@@ -13,6 +13,8 @@ import { FlipWords } from "@/components/ui/flip-words";
 
 import { BackgroundBeamsDemo } from "@/components/custom/BackgroundDemo";
 import { PreviewDemo } from "../components/custom/PreviewDemo";
+import { ModeToggle } from "@/components/ui/modeToggle";
+import GetStarted from "@/components/custom/GetStarted";
 
 export default function Home() {
   const words = ["Better", "Smart", "Scalable", "Modern", "Insightful"];
@@ -51,6 +53,7 @@ export default function Home() {
           </Link>
         </nav>
         <div className="ml-4 flex items-center gap-2">
+        <ModeToggle/>
           <Link href="/login">
             <Button variant="outline" size="sm">
               Login
@@ -178,83 +181,7 @@ export default function Home() {
 
         <PricingSection />
        
-        <section className="w-full py-12 md:py-24 lg:py-32 border-t">
-          <div className="container px-4 md:px-6">
-            <div className="grid gap-10 sm:px-10 md:gap-16 md:grid-cols-2">
-              <div className="space-y-4">
-                <div className="inline-block rounded-lg bg-primary px-3 py-1 text-sm bg-gradient-to-r from-purple-500 to-cyan-500 text-white border-0">
-                  Ready to start?
-                </div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  Start managing your business today
-                </h2>
-                <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Join thousands of businesses already using our platform to
-                  grow and succeed.
-                </p>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Link href="/register">
-                    <Button
-                      size="lg"
-                      className="gap-1.5 bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 text-white border-0"
-                    >
-                      Get Started <ArrowRight className="h-4 w-4" />
-                    </Button>
-                  </Link>
-                  <Link href="#features">
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="border-zinc-700 hover:bg-zinc-800 text-white"
-                    >
-                      Learn More
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div className="grid gap-4">
-                  <div className="flex items-center gap-4">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                      <CheckCircle className="h-5 w-5 text-primary" />
-                    </div>
-                    <div className="space-y-1">
-                      <h3 className="font-medium">Easy Setup</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Get started in minutes with our simple onboarding
-                        process.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                      <CheckCircle className="h-5 w-5 text-primary" />
-                    </div>
-                    <div className="space-y-1">
-                      <h3 className="font-medium">Free Trial</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Try all features free for 14 days, no credit card
-                        required.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                      <CheckCircle className="h-5 w-5 text-primary" />
-                    </div>
-                    <div className="space-y-1">
-                      <h3 className="font-medium">Cancel Anytime</h3>
-                      <p className="text-sm text-muted-foreground">
-                        No long-term contracts. Cancel your subscription at any
-                        time.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+    <GetStarted/>
         <section>
           <BackgroundBeamsDemo />
         </section>
@@ -269,7 +196,7 @@ export default function Home() {
         </section> */}
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-muted-foreground">
+        <p className="text-xs ">
           &copy; {new Date().getFullYear()} Bui Huu Loc. All rights reserved.
         </p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">

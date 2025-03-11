@@ -22,12 +22,12 @@ export function BackgroundBeamsDemo() {
       };
     
   return (
-    <div className="h-[40rem] w-full rounded-md bg-neutral-950 relative flex flex-col items-center justify-center antialiased px-4">
+    <div className="h-[40rem] w-full rounded-md relative flex flex-col items-center justify-center antialiased px-4">
       <div className="max-w-2xl mx-auto text-center relative z-10">
-        <h1 className="text-lg md:text-7xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600 font-sans font-bold">
+        <h1 className="text-lg md:text-7xl   font-sans font-bold">
           Join the waitlist
         </h1>
-        <p className="text-neutral-500 max-w-lg mx-auto my-2 text-sm">
+        <p className=" max-w-lg mx-auto my-2 text-sm">
         Be among the first to experience our powerful, 
         data-driven Company Dashboard Service! Get early access and unlock real-time insights, 
         automation, and seamless business monitoring before anyone else.
@@ -38,7 +38,7 @@ export function BackgroundBeamsDemo() {
             value={email}
             placeholder="huuloc2026@gmail.com"
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full bg-neutral-950 border border-neutral-800 placeholder:text-neutral-700"
+            className="w-full border border-neutral-800 placeholder:text-neutral-700"
           />
           <Button
             onClick={handleClick}
