@@ -37,9 +37,7 @@ const formSchema = z.object({
 })
 
 export default function ContactFormPreview() {
-    const [name,setName]=useState("")
-    const [email,setEmail]=useState("")
-    const [description,setDescription]=useState("")
+    
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
