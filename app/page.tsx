@@ -43,6 +43,12 @@ export default function Home() {
           >
             About
           </Link>
+          <Link
+            href="/contact"
+            className="text-sm font-medium hover:underline underline-offset-4"
+          >
+            Contact
+          </Link>
         </nav>
         <div className="ml-4 flex items-center gap-2">
           <Link href="/login">
@@ -53,6 +59,7 @@ export default function Home() {
           <Link href="/register">
             <Button size="sm">Register</Button>
           </Link>
+
         </div>
       </header>
       <main className="flex-1">
@@ -165,75 +172,12 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        
         <TimelineDemo />
 
         <PricingSection />
-        {/* <section id="pricing" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-primary px-3 py-1 text-sm text-primary-foreground">
-                  Pricing
-                </div>
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">Simple, transparent pricing</h2>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Choose the plan that's right for your business.
-                </p>
-              </div>
-            </div>
-            <div className="mx-auto grid max-w-5xl items-start gap-6 py-12 lg:grid-cols-3">
-              {[
-                {
-                  title: "Starter",
-                  price: "$29",
-                  description: "Perfect for small businesses just getting started.",
-                  features: ["5 Users", "Basic Analytics", "Standard Support", "1 Project"],
-                },
-                {
-                  title: "Professional",
-                  price: "$79",
-                  description: "Ideal for growing businesses with more needs.",
-                  features: ["20 Users", "Advanced Analytics", "Priority Support", "5 Projects", "API Access"],
-                },
-                {
-                  title: "Enterprise",
-                  price: "$199",
-                  description: "For large organizations with complex requirements.",
-                  features: [
-                    "Unlimited Users",
-                    "Custom Analytics",
-                    "24/7 Support",
-                    "Unlimited Projects",
-                    "API Access",
-                    "Custom Integrations",
-                  ],
-                },
-              ].map((plan, index) => (
-                <div key={index} className="flex flex-col rounded-lg border bg-background p-6 shadow-sm">
-                  <h3 className="text-lg font-bold">{plan.title}</h3>
-                  <div className="mt-4 flex items-baseline text-3xl font-bold">
-                    {plan.price}
-                    <span className="ml-1 text-sm font-normal text-muted-foreground">/month</span>
-                  </div>
-                  <p className="mt-2 text-sm text-muted-foreground">{plan.description}</p>
-                  <ul className="mt-6 space-y-3">
-                    {plan.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center">
-                        <CheckCircle className="mr-2 h-4 w-4 text-primary" />
-                        <span className="text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-6">
-                    <Button className="w-full">Get Started</Button>
-                  
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section> */}
-
+       
         <section className="w-full py-12 md:py-24 lg:py-32 border-t">
           <div className="container px-4 md:px-6">
             <div className="grid gap-10 sm:px-10 md:gap-16 md:grid-cols-2">
@@ -314,6 +258,15 @@ export default function Home() {
         <section>
           <BackgroundBeamsDemo />
         </section>
+                {/* Contact Form */}
+        {/* <section
+          id="contact"
+          className="w-full py-12 md:py-24 lg:py-32"
+        >
+          <div className="container px-4 md:px-6">
+        OKe
+          </div>
+        </section> */}
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
         <p className="text-xs text-muted-foreground">

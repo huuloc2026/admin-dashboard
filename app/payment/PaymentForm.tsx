@@ -45,7 +45,7 @@ export function PaymentForm({ userId }: { userId: string }) {
         paymentMethodId,
       });
       toast("Payment method added successfully!");
-      
+      router.push('dashboard/subscription')
     } catch (error) {
       console.error("Error attaching payment method:", error);
     }

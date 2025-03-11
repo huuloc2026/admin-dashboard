@@ -48,7 +48,7 @@ export async function register(name: string, email: string, password: string): P
     })
 
     // Store token in cookie
-    setAuthToken(data.accessToken)
+    // setAuthToken(data.accessToken)
 
     // Return user data
     return data.user
